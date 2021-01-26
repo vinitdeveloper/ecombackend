@@ -48,33 +48,48 @@ class Login extends Component {
      */
     handleValidSubmit = (event, values) => {
         // this.props.loginUser(values.username, values.password, this.props.history);
-		let self = this;
-		
-        axios.post('subadmin-login', values)
-        .then(function (response) {
-			
-			if(response.data.error == false){
-				var msgText = response.data.message;
-				self.setState({ successMsg : msgText, errorMsg : "" });
-				
-				let cookies = new Cookies();
-				
-				cookies.set('user', JSON.stringify(response.data.data), { path: '/' });
+
+        let cookies = new Cookies();
                 
-                // this.props.history.push("/");
-				setTimeout(function(){ window.location.reload(); }, 1000);
+                const response_login = {
+                    id : 50,
+					username : "admin",
+					email : "admin@gmail.com",
+					mobile : "9999999999",
+					role : 'Admin',
+					status : 1,
+					token : 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJjb2RlcnRoZW1lcyIsImlhdCI6MTU4NzM1NjY0OSwiZXhwIjoxOTAyODg5NDQ5LCJhdWQiOiJjb2RlcnRoZW1lcy5jb20iLCJzdWIiOiJzdXBwb3J0QGNvZGVydGhlbWVzLmNvbSIsImxhc3ROYW1lIjoiVGVzdCIsIkVtYWlsIjoic3VwcG9ydEBjb2RlcnRoZW1lcy5jb20iLCJSb2xlIjoiQWRtaW4iLCJmaXJzdE5hbWUiOiJIeXBlciJ9.P27f7JNBF-vOaJFpkn-upfEh3zSprYfyhTOYhijykdI'
+                }
 				
-				// this.setSession(response.data.data);
-				
-			}else{
-				var msgText = response.data.message;
-				self.setState({ errorMsg : msgText, successMsg : "" });
-			}
+                cookies.set('user', JSON.stringify(response_login), { path: '/' });
+                
+		// let self = this;
+		
+        // axios.post('subadmin-login', values)
+        // .then(function (response) {
 			
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
+		// 	if(response.data.error == false){
+		// 		var msgText = response.data.message;
+		// 		self.setState({ successMsg : msgText, errorMsg : "" });
+				
+		// 		let cookies = new Cookies();
+				
+		// 		cookies.set('user', JSON.stringify(response.data.data), { path: '/' });
+                
+        //         // this.props.history.push("/");
+		// 		setTimeout(function(){ window.location.reload(); }, 1000);
+				
+		// 		// this.setSession(response.data.data);
+				
+		// 	}else{
+		// 		var msgText = response.data.message;
+		// 		self.setState({ errorMsg : msgText, successMsg : "" });
+		// 	}
+			
+        // })
+        // .catch(function (error) {
+        //   console.log(error);
+        // });
 		
     };
 

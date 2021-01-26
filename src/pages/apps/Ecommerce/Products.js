@@ -303,9 +303,11 @@ const Products = () => {
                         <CardBody>
                             <Row>
                                 <Col sm={4}>
-                                    <Button color="danger" className="mb-2">
-                                        <i className="mdi mdi-plus-circle mr-2"></i> Add Product
-                                    </Button>
+                                    <Link to="/apps/addproduct" className="action-icon">
+                                        <Button color="danger" className="mb-2">
+                                            <i className="mdi mdi-plus-circle mr-2"></i> Add Product
+                                        </Button>
+                                    </Link>
                                 </Col>
 
                                 <Col sm={8}>

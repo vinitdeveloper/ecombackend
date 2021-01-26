@@ -1,7 +1,6 @@
 {
   "name": "hyper-react",
   "version": "2.0.2",
-  "homepage": "https://forexsuit.com/admin",
   "private": true,
   "dependencies": {
     "@fullcalendar/bootstrap": "^4.4.2",
